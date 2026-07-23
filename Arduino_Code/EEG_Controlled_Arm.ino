@@ -1,1 +1,95 @@
-
+#include <Servo.h>  
+ 
+//define the variable 
+const int eegPin = A0;           // the arduino analog pin used 
+const int SAMPLE_SIZE = 10;      // Number of readings needed for baseline  
+const float DELTA = 2.5;         // threshold, the amount of increase there must be for spike detection 
+ 
+//for circular buffer 
+int readings[SAMPLE_SIZE];       //creating an array which hold the values for calculating the baseline 
+int index = 0;                   //since, initially there are no values in the array 
+bool filled = false;             //the statement 'filled' is false since the array is empty 
+ 
+// give names to the servo motors 
+Servo servo_claw, servo_left;  
+ 
+void setup() {  
+  Serial.begin(9600); //start the serial monitor 
+  delay(1000);  //delay to ensure smooth operation 
+  Serial.println("EEG Small Spike Detector Started...");  
+78 
+ 
+   
+  // Attach servo motors to PWM pins 
+  servo_left.attach(3);  
+  servo_claw.attach(5);  
+   
+  // Set servos to neutral position (90 degrees) 
+  servo_left.write(90);  
+  servo_claw.write(90);  
+}  
+ 
+void loop() {  
+  int adcValue = analogRead(eegPin);  //read the arduino analog pin 
+ 
+  //create a circular buffer 
+  readings[index] = adcValue;  
+  index++;  
+  if (index >= SAMPLE_SIZE) {  
+    index = 0;  
+    filled = true;  
+  }  
+ 
+  // Calculate baseline as average of recent readings  
+  int sum = 0;   
+  int count;  
+  if (filled == true) {  
+    count = SAMPLE_SIZE;   // use all of the 10 readings  
+  } else {  
+    count = index;         // use only the readings we have so far  
+  }  
+ 
+  for (int i = 0; i < count; i++) {  
+    sum += readings[i];   // adds the reading to other readings  
+  }  
+ 
+  float baseline = sum / (float)count;  // calculate average  
+ 
+  // Detect spikes 
+  if (adcValue > baseline + DELTA) {  
+    Serial.print("spike up! ADC: ");  
+    Serial.print(adcValue);  
+    Serial.print(" | Baseline: ");  
+    Serial.println(baseline, 2);  
+ 
+    // Move servos for positive spike 
+    servo_left.write(180);  
+    servo_claw.write(180);  
+    delay(2000);  
+    servo_left.write(90);  
+    servo_claw.write(90);  
+ 
+  } else if (adcValue < baseline - DELTA) {  
+79 
+ 
+    Serial.print("spike down! ADC: ");  
+    Serial.print(adcValue);  
+    Serial.print(" | Baseline: ");  
+    Serial.println(baseline, 2);  
+ 
+    // Move servos for negative spike 
+    servo_left.write(10);  
+    servo_claw.write(10);  
+    delay(2000);  
+    servo_left.write(90);  
+    servo_claw.write(90);  
+ 
+  } else {  
+    Serial.print("ADC: ");  
+    Serial.print(adcValue);  
+    Serial.print(" | Baseline: ");  
+    Serial.println(baseline, 2);  
+  }  
+ 
+  delay(50);  
+}
