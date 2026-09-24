@@ -1,11 +1,11 @@
-## EEG-controlled robotic arm
+# EEG-controlled robotic arm
 EEG-controlled robotic arm is a prototype developed using Arduino Uno R3, C++, and embedded electronics to explore affordable assistive technology. This repository documents the project's development, execution and my technical contributions to the embedded software and hardware integration.
 
-# Project Overview
+## Project Overview
 The project explores the use of EEG (electroencephalography) signals as an input for controlling a robotic arm. The prototype focuses on detecting changes in brainwave activity associated with deliberate eye blinks and translating these signals into commands for a servo-controlled robotic arm.
 The project was developed as a proof-of-concept for how accessible embedded electronics and signal processing could contribute to assistive technologies for individuals with limited motor control.
 
-# Objectives
+## Objectives
 The main objectives of the project were to:
 *Develop a functional EEG-controlled robotic arm prototype
 *Capture and process EEG signals using an Arduino Uno R3
@@ -15,7 +15,7 @@ The main objectives of the project were to:
 *Explore the potential of low-cost electronics for assistive technology
 *Test the reliability of the system through recorded EEG signals and physical responses
 
-# Hardware
+## Hardware
 The main hardware used in the prototype includes:
 *Arduino Uno R3
 *EEG sensor/electrodes
@@ -25,7 +25,7 @@ The main hardware used in the prototype includes:
 *jumper wires
 *Breadboard and electronic components
 
-# Software
+## Software
 The embedded software was developed in C++ using the Arduino IDE.
 The program is responsible for:
  *Reading EEG signal data
@@ -36,12 +36,12 @@ The program is responsible for:
  *Controlling the servo motors
  *Producing the corresponding robotic arm movement
 
-# Project Outcome
+## Project Outcome
 The testing demonstrated the feasibility of using detectable EEG signal changes as an input for controlling a simple robotic mechanism.
 The prototype successfully connected the stages of signal acquisition, signal processing, programmed detection, and physical servo control into a single working system.
 This project was developed as a proof-of-concept rather than as a clinically validated assistive device.
 
-# Limitations
+## Limitations
 Several limitations were identified during development and testing:
 * EEG signals are susceptible to electrical and environmental noise.
 * Signal quality can vary depending on electrode placement and user movement.
@@ -50,7 +50,7 @@ Several limitations were identified during development and testing:
 * The prototype has not undergone clinical testing or validation.
 These limitations would need to be addressed before a system based on this concept could be considered for real-world medical or assistive use.
 
-# Future Improvements
+## Future Improvements
 * Implementing more advanced EEG signal-processing techniques.
 * Improving filtering and noise reduction.
 * Developing more reliable EEG classification methods.
