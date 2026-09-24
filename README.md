@@ -63,6 +63,7 @@ These limitations would need to be addressed before a system based on this conce
 
 ## Team & Contributions
 This project was developed by a team of six members, with me serving as the team lead. I coordinated the project alongside contributing primarily to the programming and hardware integration.
+
 My contributions included:
 *Developing and refining the Arduino C++ code for EEG signal processing and robotic arm control
 *Integrating and troubleshooting the EEG circuitry, Arduino, servo motors, and robotic arm
