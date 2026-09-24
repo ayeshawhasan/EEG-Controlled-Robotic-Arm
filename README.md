@@ -68,6 +68,7 @@ My contributions included:
 * Integrating and troubleshooting the EEG circuitry, Arduino, servo motors, and robotic arm
 * Leading system testing and helping resolve hardware and software issues
 * Coordinating the team's development and contributing to the overall project design and documentation
+  
 Other team members contributed to the mechanical assembly, testing, documentation, and other aspects of the project.
 
 
