@@ -1,5 +1,5 @@
 # EEG-controlled robotic arm
-EEG-controlled robotic arm is a prototype developed using Arduino Uno R3, C++, and embedded electronics to explore affordable assistive technology. This repository documents the project's development, execution and my technical contributions to the embedded software and hardware integration.
+EEG-controlled robotic arm is a prototype developed by a team of first-year A-level students using Arduino Uno R3, C++, and embedded electronics to explore affordable assistive technology. The project integrates neuroscience, programming, and robotics to investigate the use of EEG signals for controlling a robotic arm. This repository documents the project's development, execution, and my contributions as team lead, particularly in embedded software development and hardware integration.
 
 ## Project Overview
 The project explores the use of EEG (electroencephalography) signals as an input for controlling a robotic arm. The prototype focuses on detecting changes in brainwave activity associated with deliberate eye blinks and translating these signals into commands for a servo-controlled robotic arm.
